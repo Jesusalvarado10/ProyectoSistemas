@@ -1,0 +1,466 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+body{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background-color: black;
+    color: white;
+    }
+.componente {
+        width: 5rem;
+        height: 5rem;
+        background-color: #ccc;
+        border: 1px solid #999;
+        display: inline-block;
+        margin: 2px;
+        text-align: center;
+        line-height: 50px;
+    }
+#table{
+    display: flex;
+    flex-wrap: wrap;
+        width:30rem;
+        height: 29rem;
+
+    }
+    .form__group {
+        position: relative;
+        padding: 20px 0 0;
+        width: 100%;
+        max-width: 180px;
+        padding-bottom: 2rem;
+
+      }
+      
+      .form__field {
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid #9b9b9b;
+        outline: 0;
+        font-size: 17px;
+        color: #fff;
+        padding: 7px 0;
+        background: transparent;
+        transition: border-color 0.2s;
+      }
+      
+      .form__field::placeholder {
+        color: transparent;
+      }
+      
+      .form__field:placeholder-shown ~ .form__label {
+        font-size: 17px;
+        cursor: text;
+        top: 20px;
+      }
+      
+      .form__label {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.2s;
+        font-size: 17px;
+        color: #9b9b9b;
+        pointer-events: none;
+      }
+      
+      .form__field:focus {
+        padding-bottom: 6px;
+        font-weight: 500;
+        border-width: 3px;
+        border-image: linear-gradient(to right, #116399, #38caef);
+        border-image-slice: 1;
+      }
+      
+      .form__field:focus ~ .form__label {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.2s;
+        font-size: 17px;
+        color: #38caef;
+        font-weight: 700;
+      }
+      
+      /* reset input */
+      .form__field:required, .form__field:invalid {
+        box-shadow: none;
+      }
+      .buttons {
+        display: flex;
+        justify-content: space-around;
+        top: 20px;
+        left: 20px;
+      }
+      
+      .buttons button {
+        width: 150px;
+        height: 50px;
+        background-color: white;
+        margin: 20px;
+        color: #568fa6;
+        position: relative;
+        overflow: hidden;
+        font-size: 14px;
+        letter-spacing: 1px;
+        font-weight: 500;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px;
+      }
+      
+      .buttons button:before, .buttons button:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background-color: #44d8a4;
+        transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
+      }
+      
+      .buttons button:before {
+        right: 0;
+        top: 0;
+        transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
+      }
+      
+      .buttons button:after {
+        left: 0;
+        bottom: 0;
+      }
+      
+      .buttons button span {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: 0;
+        padding: 0;
+        z-index: 1;
+      }
+      
+      .buttons button span:before, .buttons button span:after {
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: 0;
+        background-color: #44d8a4;
+        transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
+      }
+      
+      .buttons button span:before {
+        right: 0;
+        top: 0;
+        transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
+      }
+      
+      .buttons button span:after {
+        left: 0;
+        bottom: 0;
+      }
+      
+      .buttons button p {
+        padding: 0;
+        margin: 0;
+        transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      
+      .buttons button p:before, .buttons button p:after {
+        position: absolute;
+        width: 100%;
+        transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
+        z-index: 1;
+        left: 0;
+      }
+      
+      .buttons button p:before {
+        content: attr(data-title);
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      
+      .buttons button p:after {
+        content: attr(data-text);
+        top: 150%;
+        color: #44d8a4;
+      }
+      
+      .buttons button:hover:before, .buttons button:hover:after {
+        width: 100%;
+      }
+      
+      .buttons button:hover span {
+        z-index: 1;
+      }
+      
+      .buttons button:hover span:before, .buttons button:hover span:after {
+        height: 100%;
+      }
+      
+      .buttons button:hover p:before {
+        top: -50%;
+        transform: rotate(5deg);
+      }
+      
+      .buttons button:hover p:after {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      
+      .buttons button.start {
+        background-color: #44d8a4;
+        box-shadow: 0px 5px 10px -10px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s ease;
+      }
+      
+      .buttons button.start p:before {
+        top: -50%;
+        transform: rotate(5deg);
+      }
+      
+      .buttons button.start p:after {
+        color: white;
+        transition: all 0s ease;
+        content: attr(data-start);
+        top: 50%;
+        transform: translateY(-50%);
+        animation: start 0.3s ease;
+        animation-fill-mode: forwards;
+      }
+      
+      @keyframes start {
+        from {
+          top: -50%;
+        }
+      }
+      
+      .buttons button.start:hover:before, .buttons button.start:hover:after {
+        display: none;
+      }
+      
+      .buttons button.start:hover span {
+        display: none;
+      }
+      
+      .buttons button:active {
+        outline: none;
+        border: none;
+      }
+      
+      .buttons button:focus {
+        outline: 0;
+      }
+
+      .card {
+        margin-left: -1rem;
+        margin-right: -1rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        margin-bottom: 2rem;
+        width: 320px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 0.25rem;
+        background-color: rgba(17, 24, 39, 1);
+        padding: 1.5rem;
+      }
+      
+      .header {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .title {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: 700;
+        color: #fff
+      }
+      
+    
+      
+      .desc {
+        margin-top: 0.75rem;
+        margin-bottom: 0.75rem;
+        line-height: 1.625;
+        color: rgba(156, 163, 175, 1);
+      }
+      h1{
+        display: flex;
+        justify-content: center;
+      }
+      #divinputs{
+        display: flex;
+        justify-content: space-around;
+      }
+      #divinputs input{
+        display: flex;
+        flex-direction: column-reverse;
+    
+      }
+      
+      .button {
+        position: relative;
+        padding: 10px 22px;
+        border-radius: 6px;
+        border: none;
+        background-color: white;  
+        color: #568fa6;
+        transition: all 0.2s ease;
+      }
+      
+      .button:active {
+        transform: scale(0.96);
+      }
+      
+      .button:before,
+      .button:after {
+        position: absolute;
+        content: "";
+        width: 150%;
+        left: 50%;
+        height: 100%;
+        transform: translateX(-50%);
+        z-index: -1000;
+        background-repeat: no-repeat;
+      }
+      
+      .button:hover:before {
+        top: -70%;
+        background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+          radial-gradient(circle, transparent 20%, #7d2ae8 20%, transparent 30%),
+          radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+          radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+          radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+          radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+          radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+          radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+          radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+        background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+          10% 10%, 18% 18%;
+        background-position: 50% 120%;
+        animation: greentopBubbles 0.6s ease;
+      }
+      
+      @keyframes greentopBubbles {
+        0% {
+          background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+            40% 90%, 55% 90%, 70% 90%;
+        }
+      
+        50% {
+          background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+            50% 50%, 65% 20%, 90% 30%;
+        }
+      
+        100% {
+          background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+            50% 40%, 65% 10%, 90% 20%;
+          background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+        }
+      }
+      
+      .button:hover::after {
+        bottom: -70%;
+        background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+          radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+          radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+          radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+          radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+          radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+          radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+        background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+        background-position: 50% 0%;
+        animation: greenbottomBubbles 0.6s ease;
+      }
+      
+      @keyframes greenbottomBubbles {
+        0% {
+          background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+            70% -10%, 70% 0%;
+        }
+      
+        50% {
+          background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+            105% 0%;
+        }
+      
+        100% {
+          background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+            110% 10%;
+          background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+        }
+      }
+      .buttonDefault{
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+            position: relative;
+            padding: 10px 22px;
+            border-radius: 6px;
+            border: none;
+            background-color: white;  
+            color: #568fa6;
+      }
+      #game{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      #Matrizn{
+        display: flex;
+        justify-content: center;
+      }
+      #Matrizn .button{
+        margin-top: 2rem;
+        margin-right: 2rem;
+      }
+      #ViewUsers{
+        display: flex;
+      }
+      #ViewUsers .buttonDefault{
+        margin-right: 2rem; 
+      }
+     #Menu{
+        display: flex;
+        
+     }
+     #Menu .buttonDefault{
+margin-right: 2rem;
+     }
+   
+     .cards {
+  width: 20%;
+  height: 100%;
+  border-radius: 20px;
+  padding: 5px;
+margin-top: 2rem;
+margin-left: 2rem;
+
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+}
+
+.card__contents {
+    display: flex;
+    flex-direction: column;
+   
+  background: rgb(5, 6, 45);
+  border-radius: 17px;
+  width: 100%;
+  height: 100%;
+}
+.card__contents p{
+    padding-left: 2rem;
+}
+
+

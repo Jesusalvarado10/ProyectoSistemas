@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Bingo</title>
+    <link rel="stylesheet" href="style.css" >
+</head>
+<body><div class="cards">
+    <div class="card__contents" id="resultados">
+    </div></div>
+    
+    <h1>Juego de Bingo</h1>
+   <div id="divinputs">
+    <div>
+        <h2>Registro de Usuarios</h2>
+    <div class="form__group field">
+        <input type="input" class="form__field" placeholder="User 1" required="">
+        <label id="name" class="form__label">User 1</label>
+    </div>
+    <div class="form__group field">
+        <input type="input" class="form__field" placeholder="User 2" required="">
+        <label id="name" class="form__label">User 2</label>
+    </div>
+    <div class="form__group field">
+        <input type="input" class="form__field" placeholder="User 3" required="">
+        <label id="name" class="form__label">User 3</label>
+    </div>
+      <div class="form__group field">
+    <input type="input" class="form__field" placeholder="User 4" required="">
+    <label id="name" class="form__label">User 4</label>
+</div>
+</div>
+<div class="card">
+    <div class="header">
+                            <span class="title">Instrucciones</span>
+                        </div>
+                        <p class="desc">
+                            El juego durará 25 turnos cómo máximo, pero terminará si alguien llega a cartón lleno.
+                            
+                            Cartón lleno: 5 puntos
+                            Línea horizontal: 1 punto
+                            Línea vertical: 1 punto
+                            Línea diagonal: 3 puntos
+                        
+                        </p>
+                        
+                    </div>
+    <div>
+        
+    </div>
+                </div>
+    <div class="buttons">
+        <button class="btn" id="start"><span></span><p data-start="good luck!" data-text="start!" data-title="new game"></p></button>
+     </div>
+        <strong>
+            Number:  <span id="Numbers">Nothing
+         </span> Turno: 
+         <span id="Turno">Nothing
+        </span>
+        <div>
+
+        </div>
+     </strong>
+       <div id="Matrizn" style="visibility: hidden;">
+        <button id="3" class="button">
+        3x3
+        </button>
+        <button id="4" class="button">
+            4X4
+        </button>
+        <button id="5" class="button">
+            5x5
+        </button>
+    </div id>
+    <div id="game">
+        <div id="table">
+        </div>
+        <strong>
+             <div id="Puntuacion"></div>
+        <button id="passball" class="buttonDefault"  style="visibility: hidden;">
+Pasar
+        </button>
+     </strong>
+     <div id="ViewUsers">
+
+     </div>
+     <div id="Menu">
+     <button id="restart"  class="buttonDefault" style="visibility: hidden;">
+        reiniciar
+     </button>
+     <button id="Inicio"  class="buttonDefault" style="visibility: hidden;">
+        Inicio
+     </button>
+    </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>

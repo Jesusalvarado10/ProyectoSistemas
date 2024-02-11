@@ -463,4 +463,7 @@ margin-left: 2rem;
     padding-left: 2rem;
 }
 
-
+@media only screen and (max-width: 480px) {
+    .cards {
+        width: 40%;}
+}

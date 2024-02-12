@@ -484,3 +484,21 @@ margin-left: 2rem;
       }
       
 }
+h2{
+    font-size: 1.3em;
+}
+@media screen and (min-width: 480px ) and (max-width: 1024px ) {
+    #divinputs{
+        padding-left: 2rem;
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: space-around;  }
+    #table{
+        padding-left: 6rem;
+
+    }
+    #ViewUsers .buttonDefault{
+        margin-right: 0.5rem; 
+      }
+      
+  }

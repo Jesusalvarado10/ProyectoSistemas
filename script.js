@@ -248,43 +248,76 @@ const checkInputs=()=>{
 }
 
 
-const checkScore= ()=>{
-   
-    let goal=0;
+const checkScore = () => {
+    let goal = 0;
+
+
     for (let i = 0; i < array.length; i++) {
-     
         const fila = array[i];
-        if (fila.every((val, index) => val.validate == fila[0].validate)) {
+        let esValida = true;
+        for (let j = 0; j < fila.length; j++) {
+            if (fila[j].validate !== true || fila[j].validate !== fila[0].validate || fila[j].validate !== fila[fila.length - 1].validate) {
+                esValida = false;
+                break;
+            }
+        }
+        if (esValida) {
+            goal += 1;
+        }
+    }
+
  
-                goal += 1; 
-            }
-        }
     for (let i = 0; i < array.length; i++) {
-            const columna = array.map(row => row[i]);
-            if (columna.every((val, index) => val.validate === columna[0].validate)) {
-                goal += 1; 
+        const columna = array.map(row => row[i]);
+        let esValida = true;
+        for (let j = 0; j < columna.length; j++) {
+            if (columna[j].validate !== true ) {
+                esValida = false;
+                break;
             }
-    
         }
+        if (esValida) {
+            goal += 1;
+        }
+    }
+
+
     const diagonalPrincipal = [];
-    const diagonalSecundaria = [];
-    
     for (let i = 0; i < array.length; i++) {
         diagonalPrincipal.push(array[i][i]);
+    }
+    let esValidaDiagonalPrincipal = true;
+    for (let j = 0; j < diagonalPrincipal.length; j++) {
+        if (diagonalPrincipal[j].validate !== true) {
+            esValidaDiagonalPrincipal = false;
+            break;
+        }
+    }
+    if (esValidaDiagonalPrincipal) {
+        goal += 3;
+    }
+
+ 
+    const diagonalSecundaria = [];
+    for (let i = 0; i < array.length; i++) {
         diagonalSecundaria.push(array[i][array.length - 1 - i]);
     }
-    if (diagonalPrincipal.every((val, index) => val.validate === diagonalPrincipal[0].validate) )  {
-        goal += 3; 
+    let esValidaDiagonalSecundaria = true;
+    for (let j = 0; j < diagonalSecundaria.length; j++) {
+        if (diagonalSecundaria[j].validate !== true ) {
+            esValidaDiagonalSecundaria = false;
+            break;
+        }
     }
-    if(diagonalSecundaria.every((val, index) => val.validate === diagonalSecundaria[0].validate)){
-        goal += 3; 
+    if (esValidaDiagonalSecundaria) {
+        goal += 3;
     }
-    if(checkTableAll(array)){
-        goal+=5
-    }
-        return goal;
 
-   
+    if (checkTableAll(array)) {
+        goal += 5;
+    }
+
+    return goal;
 }
 function User(name) {
     this.name = name;
@@ -361,6 +394,7 @@ divResult.innerHTML = '';
          
             let p = document.createElement("p");
             p.textContent = result[i][j].name + ": " + result[i][j].score + " pts";
+            agruparPorNombre(array)
             divResult.appendChild(p);
         }
     
@@ -477,7 +511,9 @@ function agruparPorNombre(array) {
 }
 
 const showAllresutl=()=>{
+    divResult.innerHTML=""
     try{
+        datos=agruparPorNombre(datos)
     for (let i = 0; i < datos.length; i++) {    
             let p = document.createElement("p");
             p.textContent = datos[i][0] + ": " + datos[i][1] + " pts";
@@ -485,7 +521,6 @@ const showAllresutl=()=>{
         }}
         catch  (error) {
             if (error instanceof TypeError) {
-                // Manejar el error TypeError aquí
                 let p = document.createElement("p");
                 p.textContent = "No hay datos";
                 divResult.appendChild(p);

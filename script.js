@@ -16,6 +16,7 @@ const botonesMatriz = divBotones.getElementsByTagName("button");
 let nMatriz=0;
 const turnoSet= document.getElementById("Turno");
 const buttonInicio= document.getElementById("Inicio")
+const cardPuntuacion = document.getElementById("cards")
 let datos= []
 let array
 let users=[]
@@ -80,6 +81,7 @@ function crearComponente(fila) {
     matriz.appendChild(componente);
 }
 buttonInicio.addEventListener("click", function() {
+    cardPuntuacion.style.visibility="visible"
     matriz.style.visibility="hidden"
     numberSet.innerText=`Nothing`  
     turnoSet.innerText=`Nothing`
@@ -172,6 +174,7 @@ buttonStart.addEventListener("click", function() {
     if(checkInputs()){
         if(users.length==0){    
             createUsers()}
+    cardPuntuacion.style.visibility="hidden"
     divResult.style.visibility="hidden"
     buttonStart.style.visibility="hidden"
     divInputs.style.visibility="hidden"

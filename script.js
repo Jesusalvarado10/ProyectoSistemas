@@ -80,6 +80,7 @@ function crearComponente(fila) {
     matriz.appendChild(componente);
 }
 buttonInicio.addEventListener("click", function() {
+    matriz.style.visibility="hidden"
     numberSet.innerText=`Nothing`  
     turnoSet.innerText=`Nothing`
     buttonRestart.style.visibility="hidden";
@@ -89,7 +90,7 @@ buttonInicio.addEventListener("click", function() {
     divResult.style.visibility="visible"
     buttonStart.style.visibility="visible"
     divResult.style.visibility="visible"
-    showAllresutl()
+
     divInputs.style.visibility="visible"
     miDiv.style.visibility="hidden";
     users=[]
@@ -98,6 +99,7 @@ buttonInicio.addEventListener("click", function() {
     divView.innerHTML = "";
     buttonInicio.style.visibility="hidden"
     matriz.style.visibility="hidden"
+    showAllresutl()
 
 })
 
@@ -201,7 +203,7 @@ buttonRestart.addEventListener("click", function() {
 buttonPass.addEventListener("click", function() {
   
     for(let i= 0 ; i<users.length;i++){
-    if ( checkTableAll(users[i].matriz)|| numbers.length==30) {
+    if ( checkTableAll(users[i].matriz)|| numbers.length==25) {
         for(let i= 0 ; i<users.length;i++){
             array=users[i].matriz
             interatorMatriz(users[i].matriz)
@@ -269,10 +271,10 @@ const checkScore= ()=>{
         diagonalSecundaria.push(array[i][array.length - 1 - i]);
     }
     if (diagonalPrincipal.every((val, index) => val.validate === diagonalPrincipal[0].validate) )  {
-        goal += 5; 
+        goal += 3; 
     }
     if(diagonalSecundaria.every((val, index) => val.validate === diagonalSecundaria[0].validate)){
-        goal += 5; 
+        goal += 3; 
     }
     if(checkTableAll(array)){
         goal+=5
@@ -427,7 +429,7 @@ const mandardatos=()=>{
     localStorage.setItem('partida', JSON.stringify(datos));
 
 }
-const leerdatos=()=>{
+const leerdatos=()=>{try{
     let arrayRecuperado = JSON.parse(localStorage.getItem('partida'));
     for (let i = 0; i < arrayRecuperado.length; i++) {
         let x= []
@@ -435,7 +437,16 @@ const leerdatos=()=>{
         x.push(arrayRecuperado[i][1])
         datos.push(x)
         }
-    console.log(datos)
+    console.log(datos)}
+    catch   (error) {
+        if (error instanceof TypeError) {
+
+            console.error('Se produjo un error TypeError:', error.message);
+        } else {
+
+            console.error('Se produjo un error:', error.message);
+        }
+    }
 
 }
 leerdatos()
@@ -463,10 +474,18 @@ function agruparPorNombre(array) {
 }
 
 const showAllresutl=()=>{
+    try{
     for (let i = 0; i < datos.length; i++) {    
             let p = document.createElement("p");
             p.textContent = datos[i][0] + ": " + datos[i][1] + " pts";
             divResult.appendChild(p);
+        }}
+        catch  (error) {
+            if (error instanceof TypeError) {
+                // Manejar el error TypeError aquí
+                let p = document.createElement("p");
+                p.textContent = "No hay datos";
+                divResult.appendChild(p);
         }
-}
+}}
 showAllresutl()

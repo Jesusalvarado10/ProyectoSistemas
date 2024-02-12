@@ -9,8 +9,10 @@ body{
 .componente {
         width: 5rem;
         height: 5rem;
-        background-color: #ccc;
-        border: 1px solid #999;
+        border-radius: 1rem;
+        background-color: #44d8a4;
+        opacity: 1;
+        border: 1px solid #317c62;
         display: inline-block;
         margin: 2px;
         text-align: center;
@@ -428,7 +430,7 @@ body{
         display: flex;
       }
       #ViewUsers .buttonDefault{
-        margin-right: 2rem; 
+        margin-right: 1rem; 
       }
      #Menu{
         display: flex;
@@ -462,8 +464,23 @@ margin-left: 2rem;
 .card__contents p{
     padding-left: 2rem;
 }
-
-@media only screen and (max-width: 480px) {
+#Cosas{
+    margin-left: 4rem;
+}
+@media screen and (max-width: 480px ) {
     .cards {
         width: 40%;}
+    #divinputs{
+        padding-left: 2rem;
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: space-around;  }
+    #table{
+        padding-left: 2.5rem;
+
+    }
+    #ViewUsers .buttonDefault{
+        margin-right: 0.5rem; 
+      }
+      
 }
